@@ -4,7 +4,6 @@
     const Controllers = require('../controller/index');
     const Models = require('../models/index');
 
-
     class RouterClass{
         constructor( { passport } ){
             this.router = express.Router();
