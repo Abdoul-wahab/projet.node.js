@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 
 const MongoClass = require('./services/mongo.class')
-const PostModel = require('./models/post.model');
 
 
 
