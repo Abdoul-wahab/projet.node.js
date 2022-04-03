@@ -4,7 +4,7 @@
 
 ## L’équipe
 
-Abdoul ZAKARI/Melien Roldy PIERRE
+Abdoul ZAKARI - Melien Roldy PIERRE
 
 <br>
 

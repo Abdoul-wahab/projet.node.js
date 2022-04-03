@@ -2,7 +2,7 @@
     const express = require('express');
     const {body, checkSchema, validationResult} = require('express-validator');
     const Controllers = require('../controller/index');
-    const Models = require('../models/index');
+    const User = require('../models/user.model')
 
     class RouterClass{
         constructor( { passport } ){
@@ -22,7 +22,7 @@
                     normalizeEmail: true,
                     custom: {
                         options: value => {
-                            return Models.user.find({
+                            return User.find({
                                 email: value
                             }).then(user => {
                                 if (user.length > 0) {
@@ -82,6 +82,7 @@
             })
 
             this.router.get('/user', this.passport.authenticate('jwt', { session: false }), (req, res) => {
+                
             })
         }
 

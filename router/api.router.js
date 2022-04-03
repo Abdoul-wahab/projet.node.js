@@ -18,7 +18,7 @@ class RouterClass {
             return res.json({ msg: "Hello API" })
         })
 
-        this.router.post('/:endpoint', (req, res) => {
+        this.router.post('/:endpoint', this.passport.authenticate('jwt', { session: false }), (req, res) => {
             Controllers[req.params.endpoint].createOne(req)
                 .then(apiResponse => res.json({ data: apiResponse, err: null }))
                 .catch(apiError => res.status(500).json({ data: null, err: apiError }))
@@ -36,14 +36,14 @@ class RouterClass {
                 .catch(apiError => res.status(500).json({ data: null, err: apiError }))
         })
 
-        this.router.put('/:endpoint/:id', (req, res) => { // this.passport.authenticate('jwt', { session: false }),
+        this.router.put('/:endpoint/:id', this.passport.authenticate('jwt', { session: false }), (req, res) => {
             // console.log(req.user)
             Controllers[req.params.endpoint].updateOne(req)
                 .then(apiResponse => res.json({ data: apiResponse, err: null }))
                 .catch(apiError => res.status(500).json({ data: null, err: apiError }))
         })
 
-        this.router.delete('/:endpoint/:id', (req, res) => { // this.passport.authenticate('jwt', { session: false }),
+        this.router.delete('/:endpoint/:id', this.passport.authenticate('jwt', { session: false }), (req, res) => {
             Controllers[req.params.endpoint].deleteOne(req)
                 .then(apiResponse => res.json({ data: apiResponse, err: null }))
                 .catch(apiError => res.status(500).json({ data: null, err: apiError }))

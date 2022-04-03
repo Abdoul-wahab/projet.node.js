@@ -3,6 +3,8 @@ const Models = require('../models/index');
 
 const createOne = req => {
     return new Promise((resolve, reject) => {
+        console.log('req.user =>', req.user);
+        req.body.author = req.user._id;
         Models.post.create(req.body)
             .then(data => resolve(data))
             .catch(err => reject(err))
