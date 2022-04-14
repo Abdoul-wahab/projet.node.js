@@ -17,7 +17,7 @@ class RouterClass {
                     notEmpty: true,
                 },
                 description: {
-                    isString: true,
+                    isString: true,           
                     notEmpty: true,
                 },
             },
