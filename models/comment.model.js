@@ -7,7 +7,7 @@
         
         isPartOf: {
             type: Schema.Types.ObjectId,
-            ref: 'post'
+            ref: 'collection'
         },
         author: {
             type: Schema.Types.ObjectId,

@@ -12,6 +12,7 @@
         password: String,
         firstname: String,
         lastname: String,
+        role: String,
         
         dateCreated: {
             type: Date,
@@ -33,6 +34,7 @@
             email: user.email,
             firstname: user.firstname,
             lastname: user.lastname,
+            role: user.role,
             lastConnection: user.lastConnection,
 
             expireIn: '5s',

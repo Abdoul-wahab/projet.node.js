@@ -3,9 +3,10 @@ const { Model } = require('mongoose')
 
 
 const Models = {
-    post: require('./post.model'),
     user: require('./user.model'),
+    nft: require('./nft.model'),
     comment: require('./comment.model'),
+    collection: require('./collection.model'),
 }
 
 

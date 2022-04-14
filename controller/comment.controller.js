@@ -6,15 +6,12 @@
         return new Promise( (resolve, reject) => {
         
             req.body.author = req.user._id;
-            req.body.isPartOf = req.params.postId;
+            req.body.isPartOf = req.params.collectionId;
 
-        
             Models.comment.create(req.body)
             .then( async commentData => {
-
-                const updatedPost = await Models.post.findByIdAndUpdate(req.params.postId, { $push: { comments: commentData._id } })
-
-                return resolve({ comment: commentData, updated: updatedPost })
+                await Models.collection.findByIdAndUpdate(req.params.collectionId, { $push: { comments: commentData._id } })
+                return resolve({ comment: commentData })
             })
             .catch( commentError => reject(commentError) )
         })
@@ -39,22 +36,10 @@
             .populate({ 
                 path: 'author'
             })
-            .populate({ 
-                path: 'comments' ,
-                populate: { 
-                    path: 'author'
-                }
-            })
             .exec( (err, data) => {
-
                 if( err ){ return reject(err) }
                 else{
-
-                    decryptData(data.author, 'firstname', 'lastname')
-
                     console.log(data)
-
-
                     return resolve(data)
                 }
             })
@@ -63,26 +48,11 @@
 
 
     const updateOne = req => {
-        return new Promise( (resolve, reject) => {
-
-            Models.comment.findById(req.params.id, (err, mongoPost) => {
-
-                if( err ){ return reject(err) }
-                else{
-
-                    if( mongoPost.author === req.user._id ){
-                        
-
-                        Models.post.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
-
-                            
-                            return err
-                            ? reject(err)
-                            : resolve(data)
-                        })
-                    }
-                    else{ return reject('Unauthorized') };
-                }
+        return new Promise((resolve, reject) => {
+            Models.collection.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
+                return err
+                ? reject(err)
+                : resolve(data)
             })
         })
     }
@@ -92,7 +62,6 @@
         return new Promise( (resolve, reject) => {
 
             Models.comment.deleteOne({ _id: req.params.id, author: req.user._id }, (err, data) => {
-
                 return err
                 ? reject(err)
                 : resolve(data)
