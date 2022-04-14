@@ -19,7 +19,6 @@
                     errorMessage: "lastname field cannot be empty"
                 },
                 email: {
-                    normalizeEmail: true,
                     custom: {
                         options: value => {
                             return User.find({
@@ -44,7 +43,6 @@
             this.loginSchema = {
                 email: {
                     isEmail: true,
-                    normalizeEmail: true,
                 }
             }
 
@@ -68,7 +66,7 @@
                 .catch( apiError => res.status(401).json( { data: null, err: apiError } ))
             })
 
-            this.router.post('/login', (req, res) => {
+            this.router.post('/login', checkSchema(this.loginSchema), (req, res) => {
                 const errors = validationResult(req);
                 if (!errors.isEmpty()) {
                     return res.status(400).json({

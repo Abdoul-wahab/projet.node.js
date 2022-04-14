@@ -35,6 +35,12 @@ const MySchema = new Schema({
     }
 })
 
+MySchema.pre('findByIdAndUpdate', (next) => {
+    this._update.dateUpdated = new Date()
+    this._update.items = this._update.nfts.length
+    console.log(this._update)
+    next();
+});
 
 const MyModel = mongoose.model('collection', MySchema);
 module.exports = MyModel;
