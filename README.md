@@ -30,13 +30,13 @@ Nous avons choisi de créer une API qui permet d'avoir accès à aux NFTs qui so
 
 les dépendances du projet
 
->`bcrypt` Pour hacher les mots de passe
->`body-parser` Pour analysez les corps de requête entrants dans un middleware, disponibles dans `req.body`
->`dotenv` Pour charger les variables d'environnement
->`express-validator` Pour la validation de données
->`mongoose` Pour la modélisation d'objet MongoDB conçu pour fonctionner dans un environnement asynchrone
->`moralis` Moralis fournit un backend géré pour les projets blockchain. Il synchronise automatiquement les soldes des utilisateurs dans la base de données, et permet de mettre en place des alertes sur la chaîne, de surveiller les événements des contrats intelligents, de construire des index.
->`passport`  Middleware d'authentification compatible avec Express
+>`bcrypt` Pour hacher les mots de passe <br>
+>`body-parser` Pour analysez les corps de requête entrants dans un middleware, disponibles dans `req.body` <br>
+>`dotenv` Pour charger les variables d'environnement <br>
+>`express-validator` Pour la validation de données <br>
+>`mongoose` Pour la modélisation d'objet MongoDB conçu pour fonctionner dans un environnement asynchrone <br>
+>`moralis` Moralis fournit un backend géré pour les projets blockchain. Il synchronise automatiquement les soldes des  utilisateurs dans la base de données, et permet de mettre en place des alertes sur la chaîne, de surveiller les événements des contrats intelligents, de construire des index. <br>
+>`passport`  Middleware d'authentification compatible avec Express <br>
 >`stripe` Pour les paiements
 
 <br>
