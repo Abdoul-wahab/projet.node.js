@@ -21,7 +21,7 @@ Nous avons choisi de créer une API qui permet d'avoir accès à aux NFTs qui so
 - Supprimer des nft de sa collection
 - Ajouter des commentaires à sa collection
 
-> En savoir plus 
+> 
 
 <br>
 
