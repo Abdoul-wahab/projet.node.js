@@ -1,0 +1,907 @@
+{
+	"info": {
+		"_postman_id": "0774905f-bb19-44bd-abf2-4c5225aa4a22",
+		"name": "Projet NodeJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Jhon\",\n    \"lastname\":  \"Doe\",\n    \"email\": \"jdoe@gmail.com\",\n    \"password\": \"azerty\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Regular",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"jdoe@gmail.com\",\n    \"password\": \"azerty\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"azerty\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Collections",
+			"item": [
+				{
+					"name": "Create New Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzkxODM1OGRjYTI1YzRmOWJiM2QiLCJlbWFpbCI6Impkb2VAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiSmhvbiIsImxhc3RuYW1lIjoiRG9lIiwicm9sZSI6InJlZ3VsYXIiLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6NTAuNDM5WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTUxMTgwNjU0LCJpYXQiOjE2NTAwMjA0NjV9.v6j_qqnCl9D6EPYKGhtUgicimV-gLZswHD5v68RJG64",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"My collection\",\n    \"description\": \"my Bored ape collection\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/collections",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"collections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzkxODM1OGRjYTI1YzRmOWJiM2QiLCJlbWFpbCI6Impkb2VAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiSmhvbiIsImxhc3RuYW1lIjoiRG9lIiwicm9sZSI6InJlZ3VsYXIiLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6NTAuNDM5WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTUxMTgwNjU0LCJpYXQiOjE2NTAwMjA0NjV9.v6j_qqnCl9D6EPYKGhtUgicimV-gLZswHD5v68RJG64",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"My collection\",\n    \"description\": \"my super Bored ape collection\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/collections/62581f97b569816ea89d3eb8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"collections",
+								"62581f97b569816ea89d3eb8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Collections",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzkxODM1OGRjYTI1YzRmOWJiM2QiLCJlbWFpbCI6Impkb2VAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiSmhvbiIsImxhc3RuYW1lIjoiRG9lIiwicm9sZSI6InJlZ3VsYXIiLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6NTAuNDM5WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTUxMTgwNjU0LCJpYXQiOjE2NTAwMjA0NjV9.v6j_qqnCl9D6EPYKGhtUgicimV-gLZswHD5v68RJG64",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/collections",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"collections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Collection By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzkxODM1OGRjYTI1YzRmOWJiM2QiLCJlbWFpbCI6Impkb2VAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiSmhvbiIsImxhc3RuYW1lIjoiRG9lIiwicm9sZSI6InJlZ3VsYXIiLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6NTAuNDM5WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTUxMTgwNjU0LCJpYXQiOjE2NTAwMjA0NjV9.v6j_qqnCl9D6EPYKGhtUgicimV-gLZswHD5v68RJG64",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/collections/62581f97b569816ea89d3eb8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"collections",
+								"62581f97b569816ea89d3eb8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Collection's NFTs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/collections/62581f97b569816ea89d3eb8/nfts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"collections",
+								"62581f97b569816ea89d3eb8",
+								"nfts"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzkxODM1OGRjYTI1YzRmOWJiM2QiLCJlbWFpbCI6Impkb2VAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiSmhvbiIsImxhc3RuYW1lIjoiRG9lIiwicm9sZSI6InJlZ3VsYXIiLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6NTAuNDM5WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTUxMTgwNjU0LCJpYXQiOjE2NTAwMjA0NjV9.v6j_qqnCl9D6EPYKGhtUgicimV-gLZswHD5v68RJG64",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "NFTs",
+			"item": [
+				{
+					"name": "Add NFT to Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzg1Yjc3Y2JlYTI1OTJhYzg5OGQiLCJlbWFpbCI6ImFkbWluMUBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiJBZG1pbiIsImxhc3RuYW1lIjoiQUQiLCJyb2xlIjoiYWRtaW4iLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6MzEuODg2WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTQ2MjU1OTAyLCJpYXQiOjE2NDk1Mjc5OTB9.C50JXNaHW3kY2Iq38HmEDxLIPHMaVe9kSKy5MGyh2_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token_address\": \"0x495f947276749ce646f68ac8c248420045cb7b5e\",\n    \"token_hash\": \"5a7ea33557fcd7b78a1fb8054566537c\",\n    \"contract_type\": \"ERC1155\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/nfts/62581f97b569816ea89d3eb8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"nfts",
+								"62581f97b569816ea89d3eb8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove NFT from Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzg1Yjc3Y2JlYTI1OTJhYzg5OGQiLCJlbWFpbCI6ImFkbWluMUBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiJBZG1pbiIsImxhc3RuYW1lIjoiQUQiLCJyb2xlIjoiYWRtaW4iLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6MzEuODg2WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTQ2MjU1OTAyLCJpYXQiOjE2NDk1Mjc5OTB9.C50JXNaHW3kY2Iq38HmEDxLIPHMaVe9kSKy5MGyh2_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/nfts/62585dd32213442338db7e64",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"nfts",
+								"62585dd32213442338db7e64"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Nft Metadata",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzg1Yjc3Y2JlYTI1OTJhYzg5OGQiLCJlbWFpbCI6ImFkbWluMUBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiJBZG1pbiIsImxhc3RuYW1lIjoiQUQiLCJyb2xlIjoiYWRtaW4iLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6MzEuODg2WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTQ2MjU1OTAyLCJpYXQiOjE2NDk1Mjc5OTB9.C50JXNaHW3kY2Iq38HmEDxLIPHMaVe9kSKy5MGyh2_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/nfts/0x495f947276749ce646f68ac8c248420045cb7b5e/metadata",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"nfts",
+								"0x495f947276749ce646f68ac8c248420045cb7b5e",
+								"metadata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Nft Owners",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzg1Yjc3Y2JlYTI1OTJhYzg5OGQiLCJlbWFpbCI6ImFkbWluMUBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiJBZG1pbiIsImxhc3RuYW1lIjoiQUQiLCJyb2xlIjoiYWRtaW4iLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6MzEuODg2WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTQ2MjU1OTAyLCJpYXQiOjE2NDk1Mjc5OTB9.C50JXNaHW3kY2Iq38HmEDxLIPHMaVe9kSKy5MGyh2_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/nfts/0x495f947276749ce646f68ac8c248420045cb7b5e/owners",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"nfts",
+								"0x495f947276749ce646f68ac8c248420045cb7b5e",
+								"owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Nft Trades",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzg1Yjc3Y2JlYTI1OTJhYzg5OGQiLCJlbWFpbCI6ImFkbWluMUBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiJBZG1pbiIsImxhc3RuYW1lIjoiQUQiLCJyb2xlIjoiYWRtaW4iLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6MzEuODg2WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTQ2MjU1OTAyLCJpYXQiOjE2NDk1Mjc5OTB9.C50JXNaHW3kY2Iq38HmEDxLIPHMaVe9kSKy5MGyh2_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/nfts/0x495f947276749ce646f68ac8c248420045cb7b5e/trades",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"nfts",
+								"0x495f947276749ce646f68ac8c248420045cb7b5e",
+								"trades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Nft Transfers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzg1Yjc3Y2JlYTI1OTJhYzg5OGQiLCJlbWFpbCI6ImFkbWluMUBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiJBZG1pbiIsImxhc3RuYW1lIjoiQUQiLCJyb2xlIjoiYWRtaW4iLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6MzEuODg2WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTQ2MjU1OTAyLCJpYXQiOjE2NDk1Mjc5OTB9.C50JXNaHW3kY2Iq38HmEDxLIPHMaVe9kSKy5MGyh2_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/nfts/0x495f947276749ce646f68ac8c248420045cb7b5e/transfers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"nfts",
+								"0x495f947276749ce646f68ac8c248420045cb7b5e",
+								"transfers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Nfts For Contract",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzg1Yjc3Y2JlYTI1OTJhYzg5OGQiLCJlbWFpbCI6ImFkbWluMUBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiJBZG1pbiIsImxhc3RuYW1lIjoiQUQiLCJyb2xlIjoiYWRtaW4iLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6MzEuODg2WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTQ2MjU1OTAyLCJpYXQiOjE2NDk1Mjc5OTB9.C50JXNaHW3kY2Iq38HmEDxLIPHMaVe9kSKy5MGyh2_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/nfts/0x5d9d68f2698b8e0aa6e29777f365533849a6dd94/0x495f947276749ce646f68ac8c248420045cb7b5e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"nfts",
+								"0x5d9d68f2698b8e0aa6e29777f365533849a6dd94",
+								"0x495f947276749ce646f68ac8c248420045cb7b5e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read All saved nft",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzg1Yjc3Y2JlYTI1OTJhYzg5OGQiLCJlbWFpbCI6ImFkbWluMUBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiJBZG1pbiIsImxhc3RuYW1lIjoiQUQiLCJyb2xlIjoiYWRtaW4iLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6MzEuODg2WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTQ2MjU1OTAyLCJpYXQiOjE2NDk1Mjc5OTB9.C50JXNaHW3kY2Iq38HmEDxLIPHMaVe9kSKy5MGyh2_Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/all-nfts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"all-nfts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search NFTs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "X-API-Key",
+								"value": "PvYpHAbalOxDUkt",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/v1/nfts/?q=bored ape",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"nfts",
+								""
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "bored ape"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzkxODM1OGRjYTI1YzRmOWJiM2QiLCJlbWFpbCI6Impkb2VAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiSmhvbiIsImxhc3RuYW1lIjoiRG9lIiwicm9sZSI6InJlZ3VsYXIiLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6NTAuNDM5WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTUxMTgwNjU0LCJpYXQiOjE2NTAwMjA0NjV9.v6j_qqnCl9D6EPYKGhtUgicimV-gLZswHD5v68RJG64",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Add Comment to Collection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzkxODM1OGRjYTI1YzRmOWJiM2QiLCJlbWFpbCI6Impkb2VAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiSmhvbiIsImxhc3RuYW1lIjoiRG9lIiwicm9sZSI6InJlZ3VsYXIiLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6NTAuNDM5WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTUxMTgwNjU0LCJpYXQiOjE2NTAwMjA0NjV9.v6j_qqnCl9D6EPYKGhtUgicimV-gLZswHD5v68RJG64",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"That is a simple comment\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/comments/62581f97b569816ea89d3eb8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"comments",
+								"62581f97b569816ea89d3eb8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzkxODM1OGRjYTI1YzRmOWJiM2QiLCJlbWFpbCI6Impkb2VAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiSmhvbiIsImxhc3RuYW1lIjoiRG9lIiwicm9sZSI6InJlZ3VsYXIiLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6NTAuNDM5WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTUxMTgwNjU0LCJpYXQiOjE2NTAwMjA0NjV9.v6j_qqnCl9D6EPYKGhtUgicimV-gLZswHD5v68RJG64",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/comments/625864f3794d3a26c5e887f2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"comments",
+								"625864f3794d3a26c5e887f2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzkxODM1OGRjYTI1YzRmOWJiM2QiLCJlbWFpbCI6Impkb2VAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiSmhvbiIsImxhc3RuYW1lIjoiRG9lIiwicm9sZSI6InJlZ3VsYXIiLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6NTAuNDM5WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTUxMTgwNjU0LCJpYXQiOjE2NTAwMjA0NjV9.v6j_qqnCl9D6EPYKGhtUgicimV-gLZswHD5v68RJG64",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Stripe",
+			"item": [
+				{
+					"name": "Create checkout session",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzkxODM1OGRjYTI1YzRmOWJiM2QiLCJlbWFpbCI6Impkb2VAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiSmhvbiIsImxhc3RuYW1lIjoiRG9lIiwicm9sZSI6InJlZ3VsYXIiLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6NTAuNDM5WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTUxMTgwNjU0LCJpYXQiOjE2NTAwMjA0NjV9.v6j_qqnCl9D6EPYKGhtUgicimV-gLZswHD5v68RJG64",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"items\": [\n        {\n            \"address\": \"0x495f947276749ce646f68ac8c248420045cb7b5e\", \n            \"quantity\": 2    \n        },\n        {\n            \"address\": \"0xf4ab96fb50089329805ea1375a3fab408720bd02\", \n            \"quantity\": 1    \n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/create-checkout-session",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"create-checkout-session"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUxYzkxODM1OGRjYTI1YzRmOWJiM2QiLCJlbWFpbCI6Impkb2VAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiSmhvbiIsImxhc3RuYW1lIjoiRG9lIiwicm9sZSI6InJlZ3VsYXIiLCJsYXN0Q29ubmVjdGlvbiI6IjIwMjItMDQtMDlUMTc6NTQ6NTAuNDM5WiIsImV4cGlyZUluIjoiNXMiLCJleHAiOjE2NTUxMTgwNjU0LCJpYXQiOjE2NTAwMjA0NjV9.v6j_qqnCl9D6EPYKGhtUgicimV-gLZswHD5v68RJG64",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Google Oauth",
+			"item": [
+				{
+					"name": "auth with google",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://node-abdoul-pierre.herokuapp.com",
+			"type": "default"
+		}
+	]
+}

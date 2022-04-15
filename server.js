@@ -30,7 +30,9 @@ class ServerClass {
 
     config() {
         const { setAuthentication } = require('./services/passport.service');
+        const { setGoogleOauth } = require('./services/passport-google-oauth');
         setAuthentication(passport);
+        setGoogleOauth(passport);
         const AuthRouterClass = require('./router/auth.router');
         const authRouter = new AuthRouterClass({ passport });
         this.server.use('/v1/auth', authRouter.init());

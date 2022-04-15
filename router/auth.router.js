@@ -3,6 +3,7 @@
     const {body, checkSchema, validationResult} = require('express-validator');
     const Controllers = require('../controller/index');
     const User = require('../models/user.model')
+    const isLoggedIn = require("../middleware/isLoggedIn")
 
     class RouterClass{
         constructor( { passport } ){
@@ -51,6 +52,7 @@
 
         routes(){
 
+            // Auth
             this.router.post('/register', 
             checkSchema(this.registrationSchema),
             (req, res) => {
@@ -82,6 +84,31 @@
             this.router.get('/user', this.passport.authenticate('jwt', { session: false }), (req, res) => {
                 
             })
+
+
+            // Google Oauth2
+            
+            this.router.get('/google/callback', this.passport.authenticate('google', { failureRedirect: '/failed' }), (req, res) => {
+                // Successful authentication
+                res.redirect('/success'); 
+            })
+
+             this.router.get('/failed', (req, res) => res.send('You Failed to log in!'))
+
+            // In this route you can see that if the user is logged in u can acess his info in: req.user
+             this.router.get('/success', isLoggedIn, (req, res) => res.send(`Welcome ${req.user.displayName}!`))
+
+            // Auth Routes
+            this.router.get('/google', this.passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+            this.router.get('/logout', (req, res) => {
+                req.session = null;
+                req.logout();
+                res.redirect('/');
+            })
+
+
+
         }
 
         init(){

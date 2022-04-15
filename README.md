@@ -24,6 +24,13 @@ Nous avons choisi de créer une API qui permet d'avoir accès à aux NFTs qui so
 
 <br>
 
+## Collection postman 
+
+Le fichier `Projet NodeJS.postman_collection.json` est une collection postman contenant les requêtes vers les différents `endpoints` l'api
+
+
+<br>
+
 ## Les dépendances du projet
 
 les dépendances du projet
@@ -36,6 +43,8 @@ les dépendances du projet
 >`moralis` Moralis fournit un backend géré pour les projets blockchain. Il synchronise automatiquement les soldes des  utilisateurs dans la base de données, et permet de mettre en place des alertes sur la chaîne, de surveiller les événements des contrats intelligents, de construire des index. <br>
 >`passport`  Middleware d'authentification compatible avec Express <br>
 >`stripe` Pour les paiements
+>`passport-google-oauth20` Pour l'authentification avec google
+>...
 
 <br>
 
@@ -70,6 +79,11 @@ MONGO_URL=...
 
 # JWT
 JWT_SECRET=...
+
+# Google OAUTH
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_CALLBACK_URL=
 
 # MONGO
 MONGO_URL=

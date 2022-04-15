@@ -30,12 +30,11 @@
                     
                     const userToken = data.generateJwt(data);
 
-                    // res.cookie(process.env.COOKIE_NAME, userToken, { httpOnly: true });
                     return resolve({
                         'access_token': userToken,
                         'user': data,
                     })
-                    // return resolve(userToken)
+                    
                 }
                 else{ return reject('Password not valide') }
             })
