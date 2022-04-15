@@ -2,10 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-
 const MongoClass = require('./services/mongo.class')
-
-
 
 class ServerClass {
     constructor() {
@@ -25,26 +22,21 @@ class ServerClass {
             next();
         });
 
-        //=> Set body request with ExpressJS (http://expressjs.com/fr/api.html#express.json)
         this.server.use(express.json({ limit: '20mb' }));
         this.server.use(express.urlencoded({ extended: true }))
 
-        //=> Start server setup
         this.config();
     }
 
     config() {
         const { setAuthentication } = require('./services/passport.service');
         setAuthentication(passport);
-
         const AuthRouterClass = require('./router/auth.router');
         const authRouter = new AuthRouterClass({ passport });
         this.server.use('/v1/auth', authRouter.init());
-        
         const ApiRouterClass = require('./router/api.router');
         const apiRouter = new ApiRouterClass({ passport });
         this.server.use('/v1', apiRouter.init());
-
         this.launch();
     }
 
@@ -63,8 +55,6 @@ class ServerClass {
             })
     }
 }
-
-
 
 const MyServer = new ServerClass();
 MyServer.init();
