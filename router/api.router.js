@@ -3,6 +3,7 @@ const Controllers = require('../controller/index');
 const isAdmin = require("../middleware/isAdmin")
 const { checkSchema, validationResult} = require('express-validator');
 const Models = require('../models/index')
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
 
 class RouterClass {
@@ -53,6 +54,23 @@ class RouterClass {
                     isString: true,
                     notEmpty: true,
                 }
+            },
+            stripe: {
+                "items.*.address": {
+                    notEmpty: true,
+                    isString: true,
+                    custom: {
+                        options: value => {
+                            return Models.nft.find({
+                                token_address: value
+                            }).then(nft => {
+                                if (nft.length <= 0) {
+                                    return Promise.reject('nft not found')
+                                }
+                            })
+                        }
+                    }
+                },
             },
         }
     }
@@ -234,6 +252,49 @@ class RouterClass {
                 .then(apiResponse => res.json({ data: apiResponse, err: null }))
                 .catch(apiError => res.status(500).json({ data: null, err: apiError }))
         })
+
+        /**
+         * 
+         * 
+         * Stripe
+         * 
+         *  */
+
+         this.router.post('/create-checkout-session', 
+            this.passport.authenticate('jwt', { session: false }),
+            checkSchema(this.validationSchema.stripe),
+            async (req, res) => {
+                const errors = validationResult(req);
+                if (!errors.isEmpty()) {
+                    return res.status(400).json({
+                        success: false,
+                        errors: errors.array()
+                    });
+                }
+                try {
+                    const session = await stripe.checkout.sessions.create({
+                    payment_method_types: ["card"],
+                    mode: "payment",
+                    line_items: req.body.items.map( item => {
+                        return {
+                        price_data: {
+                            currency: "eur",
+                            product_data: {
+                            name: item.address,
+                            },
+                            unit_amount: 500000,
+                        },
+                        quantity: item.quantity,
+                        }
+                    }),
+                    success_url: `${process.env.CLIENT_URL}/success`,
+                    cancel_url: `${process.env.CLIENT_URL}/cancel`,
+                    })
+                    res.json({ data: session, err: null })
+                } catch (e) {
+                    res.status(500).json({ data: null, err: e.message })
+                }
+            })
 
     }
 
