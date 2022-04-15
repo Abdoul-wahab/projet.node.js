@@ -20,8 +20,6 @@ class ServerClass {
             const origin = req.headers.origin;
 
             if(allowedOrigins.indexOf(origin) > -1){ res.setHeader('Access-Control-Allow-Origin', origin)}
-            // res.setHeader('Access-Control-Allow-Origin', origin)
-            // res.header('Access-Control-Allow-Credentials', true);
             res.header('Access-Control-Allow-Methods', ['GET', 'PUT', 'POST', 'DELETE']);
             res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
             next();
@@ -30,8 +28,6 @@ class ServerClass {
         //=> Set body request with ExpressJS (http://expressjs.com/fr/api.html#express.json)
         this.server.use(express.json({ limit: '20mb' }));
         this.server.use(express.urlencoded({ extended: true }))
-
-        // this.server.use(cookieParser(process.env.COOKIE_SECRET));
 
         //=> Start server setup
         this.config();

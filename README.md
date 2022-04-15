@@ -11,7 +11,15 @@ Abdoul ZAKARI - Melien Roldy PIERRE
 
 ## Introduction
 
-Abdoul ZAKARI/Melien Roldy PIERRE
+Nous avons choisi de créer une API qui permet d'avoir accès à aux NFTs qui sont sur les marketplaces telque Opensea :
+- Créer une collection
+- Mise à jour de collection
+- Faire des rechches de nft
+- Ajouter des nft à sa collection
+- Obtenir les propriétaires des Nft
+- Voir les metadata des nft de sa collection
+- Supprimer des nft de sa collection
+- Ajouter des commentaires à sa collection
 
 > En savoir plus 
 
@@ -45,9 +53,13 @@ MONGO_URL=...
 # JWT
 JWT_SECRET=...
 
-# COOKIES
-COOKIE_SECRET=...
-COOKIE_NAME=...
+# MONGO
+MONGO_URL=
+
+#NFT API
+NFT_API_APP_ID=
+NFT_API_MASTER_KEY=
+NFT_API_SERVER_URL=
 ```
 
 

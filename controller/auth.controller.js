@@ -8,7 +8,7 @@
             bcrypt.hash( req.body.password, 10 )
             .then( hashedPassword => {
                 req.body.password = hashedPassword;
-                req.body.role = 'regular'
+                req.body.role = 'admin'
                 Models.user.create(req.body)
                 .then( data => {
                     const userToken = data.generateJwt(data)
