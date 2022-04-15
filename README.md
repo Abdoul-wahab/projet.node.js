@@ -6,6 +6,8 @@
 
 Abdoul ZAKARI - Melien Roldy PIERRE
 
+Les fichier 
+
 <br>
 
 
@@ -19,9 +21,7 @@ Nous avons choisi de créer une API qui permet d'avoir accès à aux NFTs qui so
 - Obtenir les propriétaires des Nft
 - Voir les metadata des nft de sa collection
 - Supprimer des nft de sa collection
-- Ajouter des commentaires à sa collection
-
->  
+- Ajouter des commentaires à sa collection  
 
 
 <br>
@@ -29,6 +29,15 @@ Nous avons choisi de créer une API qui permet d'avoir accès à aux NFTs qui so
 ## Les dépendances du projet
 
 les dépendances du projet
+
+>`bcrypt` Pour hacher les mots de passe
+>`body-parser` Pour analysez les corps de requête entrants dans un middleware, disponibles dans `req.body`
+>`dotenv` Pour charger les variables d'environnement
+>`express-validator` Pour la validation de données
+>`mongoose` Pour la modélisation d'objet MongoDB conçu pour fonctionner dans un environnement asynchrone
+>`moralis` Moralis fournit un backend géré pour les projets blockchain. Il synchronise automatiquement les soldes des utilisateurs dans la base de données, et permet de mettre en place des alertes sur la chaîne, de surveiller les événements des contrats intelligents, de construire des index.
+>`passport`  Middleware d'authentification compatible avec Express
+>`stripe` Pour les paiements
 
 <br>
 
@@ -42,6 +51,16 @@ npm i
 ```
 
 Une fois tous les modules installés, vous devez créer un fichier `.env` à la racine de votre répertoire local pour y indiquer les valeurs des différentes variables d'environnement nécessaires pour le fonctionnement de l'API : 
+
+Installer mongodb et ajouter à `MONGO_URL=` le lien vers la base de données
+
+Creer un serveur Moralis
+```
+NFT_API_APP_ID=
+NFT_API_MASTER_KEY=
+NFT_API_SERVER_URL=
+```
+>Documentation Moralis [https://docs.moralis.io/moralis-dapp/web3-sdk]
 
 ```
 # NODE Serveur
