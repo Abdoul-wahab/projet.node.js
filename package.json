@@ -8,17 +8,9 @@
         "mongo": "sudo mongod --dbpath /mongo_db",
         "start": "nodemon server.js"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/DWS-paris/NODEapi-mongo-m1.git"
-    },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/DWS-paris/NODEapi-mongo-m1/issues"
-    },
-    "homepage": "https://github.com/DWS-paris/NODEapi-mongo-m1#readme",
     "dependencies": {
         "bcrypt": "^5.0.1",
         "bcryptjs": "^2.4.3",
