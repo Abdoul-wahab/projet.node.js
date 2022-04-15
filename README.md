@@ -42,8 +42,8 @@ les dépendances du projet
 >`mongoose` Pour la modélisation d'objet MongoDB conçu pour fonctionner dans un environnement asynchrone <br>
 >`moralis` Moralis fournit un backend géré pour les projets blockchain. Il synchronise automatiquement les soldes des  utilisateurs dans la base de données, et permet de mettre en place des alertes sur la chaîne, de surveiller les événements des contrats intelligents, de construire des index. <br>
 >`passport`  Middleware d'authentification compatible avec Express <br>
->`stripe` Pour les paiements
->`passport-google-oauth20` Pour l'authentification avec google
+>`stripe` Pour les paiements <br>
+>`passport-google-oauth20` Pour l'authentification avec google<br>
 >...
 
 <br>
